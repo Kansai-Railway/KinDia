@@ -40,4 +40,7 @@
   "overrides": {
     "rollup": "^3.29.4"
   }
+  "devDependencies": {
+    "vite-plugin-singlefile": "^2.0.0"
+  }
 }
