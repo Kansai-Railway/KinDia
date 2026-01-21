@@ -15,22 +15,18 @@ jobs:
         with:
           node-version: 18
 
-      # ★ pnpm を有効化
       - name: Enable pnpm
         run: corepack enable
 
-      # ★ 依存関係インストール（native rollup 無効）
       - name: Install dependencies
-        run: |
-          pnpm install --no-optional
+        run: pnpm install
         env:
-          ROLLUP_SKIP_NATIVE: "1"
+          ROLLUP_DISABLE_NATIVE: "1"
 
-      # ★ ビルド時にも明示
       - name: Build
         run: pnpm run build
         env:
-          ROLLUP_SKIP_NATIVE: "1"
+          ROLLUP_DISABLE_NATIVE: "1"
 
       - name: Upload dist
         uses: actions/upload-artifact@v4
