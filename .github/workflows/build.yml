@@ -15,17 +15,22 @@ jobs:
         with:
           node-version: 18
 
-      # ★ ここが決定打
-      - name: Remove lockfile
-        run: rm -f package-lock.json
+      # ★ pnpm を有効化
+      - name: Enable pnpm
+        run: corepack enable
 
-      - name: Install dependencies (no native rollup)
-        run: npm install --no-optional
+      # ★ 依存関係インストール（native rollup 無効）
+      - name: Install dependencies
+        run: |
+          pnpm install --no-optional
         env:
-          ROLLUP_SKIP_NATIVE: true
+          ROLLUP_SKIP_NATIVE: "1"
 
+      # ★ ビルド時にも明示
       - name: Build
-        run: npm run build
+        run: pnpm run build
+        env:
+          ROLLUP_SKIP_NATIVE: "1"
 
       - name: Upload dist
         uses: actions/upload-artifact@v4
