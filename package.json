@@ -6,6 +6,8 @@
   "repository": "git@github.com:01397/clouddia.git",
   "author": "01397 <41501869+01397@users.noreply.github.com>",
   "license": "GPL-3.0-or-later",
+  "private": true,
+
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -17,9 +19,11 @@
     "prettier": "prettier --check './src/**/*.{ts,tsx}'",
     "prettier:fix": "prettier --write './src/**/*.{ts,tsx}'"
   },
+
   "dependencies": {
     "encoding-japanese": "^2.2.0"
   },
+
   "devDependencies": {
     "@eslint/js": "^9.22.0",
     "@types/encoding-japanese": "^2.2.1",
@@ -30,17 +34,16 @@
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.0",
-    "vite": "^6.2.1"
+    "vite": "^6.2.1",
+    "vite-plugin-singlefile": "^2.0.0"
   },
-  "private": true,
+
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=9.8.0"
   },
+
   "overrides": {
     "rollup": "^3.29.4"
-  }
-  "devDependencies": {
-    "vite-plugin-singlefile": "^2.0.0"
   }
 }
